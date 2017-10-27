@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2017 at 05:05 AM
+-- Generation Time: Oct 27, 2017 at 08:55 PM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -77,12 +77,12 @@ INSERT INTO `response_indices` (`id`, `qid`, `answer_yes`, `power`, `turnover`, 
 (3, 2, 0, 0, 0, 1),
 (4, 2, 1, 1, -1, -1),
 (5, 3, 0, -1, -1, 1),
-(6, 3, 1, 0, 0, -1),
+(6, 3, 1, 1, -1, -1),
 (7, 4, 0, -1, 0, 1),
-(9, 4, 1, 1, 0, -1),
+(9, 4, 1, 1, -1, -1),
 (10, 5, 1, 0, 0, 0),
 (11, 6, 0, -1, -1, 1),
-(12, 6, 1, 1, 0, -1),
+(12, 6, 1, 1, -1, -1),
 (13, 7, 0, -1, -1, 1),
 (14, 7, 1, -1, -1, -1),
 (15, 5, 0, -1, -1, 0);
@@ -111,7 +111,7 @@ INSERT INTO `scenarios` (`id`, `question`, `type`, `text`, `quote`) VALUES
 (3, 3, 'display', 'Duncan is dead, and you are already feeling the guilt even as you will be crowned king. Do you frame Duncan’s body guards by smearing them with blood and laying your dagger next to them?', '"I\'ll go no more./ I am afraid to think what I have done [killed Duncan]./ Look on \'t [the daggers] again I dare not." (2.2.65-67)'),
 (4, 4, 'display', 'Banquo is suspicious of Duncan’s death, and is concerned that his son Fleance won’t be king as the witches predicted. Having seen the witches’ prophesies that you would be Thane of Cawdor and King come true, however, you are not so sure; maybe Fleance will rise to the throne after all, and this psychologically affects you. Do you send murderers after Banquo and Fleance to try to subvert fate?', NULL),
 (5, 5, 'display', 'You do not fully trust the murderers you have sent to kill Banquo and Fleance. Do you send another murderer after him to make sure that they are killed?', NULL),
-(6, 6, 'display', 'Now that Banquo is dead, the other nobles including Macduff do not trust you, especially after your perceived hallucinations when the Ghost of Banquo visits in the middle of a dinner. Macduff flees to his castle at Fife, and you are afraid that he is plotting to overthrow you. Do you try to have him and his family murdered to ensure the safety of your position as king?', NULL),
+(6, 6, 'display', 'The other nobles including Macduff do not trust you, based on your quick ascension to the throne of Scotland and your hallucinations in public. Macduff flees to his castle at Fife, and you are afraid that he is plotting to overthrow you. Do you try to have him and his family murdered to ensure the safety of your position as king?', NULL),
 (7, 7, 'display', 'Though he has escaped, Macduff’s family is murdered and has heard the news. He plans to take revenge on you for the brutal murders of his wife and sons, having aligned with Malcolm and Siward. As the rebel army proceeds towards Dunsinane castle, you see sights that appear impossible - such as the entirety of Birnam Wood moving towards you. After the heartbreaking death of your wife and the confirmation of the witches’ prophecy that you won’t die until Birnam Wood moves, you decide to suit up in armor and make a last stand. You first encounter Siward’s teenage son, Young Siward. Knowing that you are facing death today, do you fight with and try to kill him?', NULL),
 (8, 1, 'end_mes', 'You have let Scotland down with your cowardice, which has been witnessed by everyone in the army. As a consequence, you have been stripped from your title as military general, and your title of Thane of Glamis has also been removed, forcing you to become a commoner. Duncan’s regime is barely able to maintain control after the rebellion, and your cowardice is central to the discrediting of the current administration in the eyes of the public.', NULL),
 (9, 2, 'end_mes', 'You live the rest of your life as a faithful general of the Scottish army. You become Thane of more territories, but have no opportunity to become King, since Duncan’s son Malcolm succeeds him once he dies.', NULL),

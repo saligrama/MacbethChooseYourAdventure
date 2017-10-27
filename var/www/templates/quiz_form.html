@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
   <script>
+
     function clickNo ()
     {
       var qn = parseInt(<?= $_GET["q"] ?>);
@@ -19,24 +20,32 @@
         document.getElementById("end").checked = true;
         document.getElementById("register_results").style.display = "";
         document.getElementById("rrlabel").style.display = "";
+      } else {
+        document.getElementById("4_next").value = 6;
       }
 
       document.getElementById("sub").style.display = "";
+      document.getElementById("sub").value = "End";
       document.getElementById("no").style.display = "none";
       document.getElementById("yes").style.display = "none";
     }
+
 
     function clickYes ()
     {
       var qn = parseInt(<?= $_GET["q"] ?>);
       if (qn == 7) {
         <?php foreach ($nextrow as $row): ?>
-          document.getElementById("mes").innerHTML = <?= $row["text"] ?>;
+          document.getElementById("mes").innerHTML = '<?= $row["text"] ?>';
         <?php endforeach; ?>
-
         document.getElementById("end").checked = true;
         document.getElementById("register_results").style.display = "";
         document.getElementById("rrlabel").style.display = "";
+        document.getElementById("sub").value = "End";
+      }
+
+      if (qn == 4) {
+        document.getElementById("4_next").value = 5;
       }
 
       document.getElementById("sub").style.display = "";
@@ -45,7 +54,7 @@
     }
 
     //document.getElementById("no").addEventListener("click", clickNo, false);
-   // document.getElementById("yes").addEventListener("click", clickYes, false);
+    //document.getElementById("yes").addEventListener("click", clickYes, false);
   </script>
 
   <title>Choose your adventure</title>
@@ -101,6 +110,7 @@
     <form name="data" id="form" method="post" action="quiz.php" enctype="application/x-www-form-urlencoded">
       <input id="end" name="end" type="checkbox" style="display:none;" />
       <br />
+      <input id="4_next" name="4_next" type="number" style="display:none;" />
       <input id="q" name="q" type="number" value=<?= $_GET["q"] ?> style="display:none;"/>
       <br />
       <label id="rrlabel" for="register_results" style="display:none;">Add results to database for analysis of trends (anonymous)</label>
