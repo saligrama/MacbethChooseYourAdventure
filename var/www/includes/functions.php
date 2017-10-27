@@ -59,13 +59,6 @@ function dieError($err) {
 
 }
 
-function redirectTo($url) {
-
-    echo "<script type='text/javascript'>window.location.replace('$url');</script>";
-    exit;
-
-}
-
 function internalErrorRedirect($url)
 {
 	popupAlert("Whoopsie! There was an internal error. Please try again");

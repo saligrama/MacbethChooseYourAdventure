@@ -10,10 +10,10 @@
   <script>
     function clickNo ()
     {
-      var qn = <?= $_GET["q"] ?>;
+      var qn = parseInt(<?= $_GET["q"] ?>);
       if (qn != 4) {
         <?php foreach ($endrow as $row): ?>
-          document.getElementById("mes").innerHTML = $row["text"];
+          document.getElementById("mes").innerHTML = '<?= $row["text"] ?>';
         <?php endforeach; ?>
 
         document.getElementById("end").checked = true;
@@ -21,16 +21,17 @@
         document.getElementById("rrlabel").style.display = "";
       }
 
-      document.getElementById("submit").style.display = true;
-      document.getElementById("no").style.display = false;
-      document.getElementById("yes").style.display = false;
+      document.getElementById("sub").style.display = "";
+      document.getElementById("no").style.display = "none";
+      document.getElementById("yes").style.display = "none";
     }
 
     function clickYes ()
     {
+      var qn = parseInt(<?= $_GET["q"] ?>);
       if (qn == 7) {
         <?php foreach ($nextrow as $row): ?>
-          document.getElementById("mes").innerHTML = $row["text"];
+          document.getElementById("mes").innerHTML = <?= $row["text"] ?>;
         <?php endforeach; ?>
 
         document.getElementById("end").checked = true;
@@ -38,10 +39,13 @@
         document.getElementById("rrlabel").style.display = "";
       }
 
-      document.getElementById("submit").style.display = true;
-      document.getElementById("no").style.display = false;
-      document.getElementById("yes").style.display = false;
+      document.getElementById("sub").style.display = "";
+      document.getElementById("no").style.display = "none"
+      document.getElementById("yes").style.display = "none";
     }
+
+    //document.getElementById("no").addEventListener("click", clickNo, false);
+   // document.getElementById("yes").addEventListener("click", clickYes, false);
   </script>
 
   <title>Choose your adventure</title>
@@ -80,23 +84,29 @@
     </div>
 
     <div class="container" id="choices">
-      <button id="no" class="btn btn-secondary" onClick="clickNo();">No</button>
-      <button id="yes" class="btn btn-secondary" onClick="clickYes()">Yes</button>
+      <button id="no" class="btn btn-secondary" onclick="clickNo()">No</button>
+      <button id="yes" class="btn btn-secondary" onclick="clickYes()">Yes</button>
     </div>
 
     <div class="container" id="end_disp">
       <p id="mes"></p>
     </div>
 
-    <form method="post">
-      <input id="end" type="checkbox" style="display:none;" />
+   <div class="container" id="scores">
+     <p id="power">Power score: <?= $_SESSION["power_score"] ?></p>
+     <p id="turnover">Turnover score: <?= $_SESSION["turnover_score"] ?></p>
+     <p id="moral">Morality score: <?= $_SESSION["morality_score"] ?></p>
+   </div>
+
+    <form name="data" id="form" method="post" action="quiz.php" enctype="application/x-www-form-urlencoded">
+      <input id="end" name="end" type="checkbox" style="display:none;" />
       <br />
-      <input id="q" type="number" value=<?= $_GET["q"] ?> style="display:none;" />
+      <input id="q" name="q" type="number" value=<?= $_GET["q"] ?> style="display:none;"/>
       <br />
-      <label id="rrlabel" for="register_results" style="display:none;">Submit results to database for analysis of trends (anonymous)</label>
-      <input id="register_results" type="checkbox" style="display:none;" />
+      <label id="rrlabel" for="register_results" style="display:none;">Add results to database for analysis of trends (anonymous)</label>
+      <input id="register_results" name="register_results" type="checkbox" style="display:none;" />
       <br />
-      <input id="submit" type="submit" class="btn btn-secondary" value="Next question" style="display:none;" />
+      <input id="sub" name="submit" type="submit" class="btn btn-secondary" value="Next question" style="display:none;" />
     </form>
   </div>
 </body>
